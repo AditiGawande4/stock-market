@@ -1,0 +1,45 @@
+Open new terminal window for each of the following section.
+
+1. First terminal window: To install dependencies and start ZooKeeper
+-> cd to the folder that has the key to EC2 machine
+-> Then ssh to to your ec2 machine. Click on connect on AWS page and get the ssh link.
+-> wget https://downloads.apache.org/kafka/3.9.0/kafka_2.13-3.9.0.tgz
+-> tar -xvf kafka_2.13-3.9.0.tgz
+-> sudo dnf install java-17-amazon-corretto -y
+-> java -version
+-> cd kafka_2.13-3.9.0
+
+Kafka server is pointing to private server, change server.properties so that it can run in public IP. To do this --
+Do a "sudo nano config/server.properties" - change ADVERTISED_LISTENERS to public ip of the EC2 instance
+
+Start ZooKeeper:
+-> bin/zookeeper-server-start.sh config/zookeeper.properties
+
+----------------------------------------
+2. Second terminal window: To start Kafka
+-> cd to the folder that has the key to EC2 machine
+-> Then ssh to your ec2 machine. Click on connect on AWS page and get the ssh link.
+
+Start Kafka-server:
+-> export KAFKA_HEAP_OPTS="-Xmx256M -Xms128M"
+-> cd kafka_2.13-3.9.0
+-> bin/kafka-server-start.sh config/server.properties
+
+----------------------------------------
+3. Third terminal window: To create the topic and start producer
+
+Create the topic:
+-> cd to the folder that has the key to EC2 machine
+-> Then ssh to your ec2 machine. Click on connect on AWS page and get the ssh link.
+-> cd kafka_2.13-3.9.0
+-> bin/kafka-topics.sh --create --topic demo_test --bootstrap-server {Put the Public IP of your EC2 Instance:9092} --replication-factor 1 --partitions 1
+
+Start Producer:
+bin/kafka-console-producer.sh --topic demo_test --bootstrap-server {Put the Public IP of your EC2 Instance:9092} 
+
+4. Fourth terminal window: To start consumer
+Start Consumer:
+-> cd to the folder that has the key to EC2 machine
+-> Then ssh to your ec2 machine. Click on connect on AWS page and get the ssh link.
+-> cd kafka_2.12-3.3.1
+-> bin/kafka-console-consumer.sh --topic demo_test --bootstrap-server {Put the Public IP of your EC2 Instance:9092}
