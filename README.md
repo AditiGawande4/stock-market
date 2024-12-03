@@ -15,7 +15,7 @@ Click the GIF above to watch the demo of the App on Youtube or here's the link (
 
 ---
 ## Architecture
-[![Architecture](Architecture.jpg)]
+![Architecture](Architecture.jpg)
 ---
 ## Features
 - **Real-Time Data Integration**: Streams data using **Apache Kafka** and processes it in real time.
