@@ -13,7 +13,9 @@ The **Real-Time Stock Market Analysis Dashboard** is an interactive tool designe
 
 Click the GIF above to watch the demo of the App on Youtube or here's the link (https://www.youtube.com/watch?v=szyyI5sOzg4)
 
-
+---
+## Architecture
+[![Architecture](Architecture.jpg)]
 ---
 ## Features
 - **Real-Time Data Integration**: Streams data using **Apache Kafka** and processes it in real time.
