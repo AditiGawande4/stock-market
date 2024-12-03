@@ -4,7 +4,6 @@
 ## Overview
 The **Real-Time Stock Market Analysis Dashboard** is an interactive tool designed to visualize, analyze, and explore real-time stock market trends. This project leverages cutting-edge technologies such as **Python**, **AWS Glue**, **Athena**, **Apache Kafka**, and **SQL** to build an end-to-end pipeline for processing and visualizing stock market data.
 
----
 
 ---
 
